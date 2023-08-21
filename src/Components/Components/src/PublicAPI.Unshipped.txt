@@ -82,7 +82,7 @@ Microsoft.AspNetCore.Components.Sections.SectionOutlet.SectionOutlet() -> void
 Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder.AddComponentParameter(int sequence, string! name, object? value) -> void
 Microsoft.AspNetCore.Components.StreamRenderingAttribute
 Microsoft.AspNetCore.Components.StreamRenderingAttribute.Enabled.get -> bool
-Microsoft.AspNetCore.Components.StreamRenderingAttribute.StreamRenderingAttribute(bool enabled) -> void
+Microsoft.AspNetCore.Components.StreamRenderingAttribute.StreamRenderingAttribute(bool enabled = true) -> void
 *REMOVED*Microsoft.AspNetCore.Components.CascadingParameterAttribute.Name.get -> string?
 *REMOVED*Microsoft.AspNetCore.Components.CascadingParameterAttribute.Name.set -> void
 Microsoft.AspNetCore.Components.SupplyParameterFromQueryProviderServiceCollectionExtensions
