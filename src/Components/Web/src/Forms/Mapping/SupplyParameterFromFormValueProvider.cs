@@ -40,7 +40,7 @@ internal class SupplyParameterFromFormValueProvider : ICascadingValueSupplier
         // We also supply values for [SupplyValueFromForm]
         if (_formValueMapper is not null && parameterInfo.Attribute is SupplyParameterFromFormAttribute supplyParameterFromFormAttribute)
         {
-            return _formValueMapper.CanMap(parameterInfo.PropertyType, MappingScopeName, supplyParameterFromFormAttribute.Handler);
+            return _formValueMapper.CanMap(parameterInfo.PropertyType, MappingScopeName, supplyParameterFromFormAttribute.FormName);
         }
 
         return false;
@@ -74,7 +74,7 @@ internal class SupplyParameterFromFormValueProvider : ICascadingValueSupplier
         Debug.Assert(mappingContext != null);
 
         var parameterName = parameterInfo.Attribute.Name ?? parameterInfo.PropertyName;
-        var restrictToFormName = ((SupplyParameterFromFormAttribute)parameterInfo.Attribute).Handler;
+        var restrictToFormName = ((SupplyParameterFromFormAttribute)parameterInfo.Attribute).FormName;
         Action<string, FormattableString, string?> errorHandler = string.IsNullOrEmpty(restrictToFormName) ?
             mappingContext.AddError :
             (name, message, value) => mappingContext.AddError(restrictToFormName, parameterName, message, value);
