@@ -1,0 +1,24 @@
+name: Kudos for Code
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  kudos:
+    name: Supporting Your Open Source Teams
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: LoremLabs/kudos-for-code-action@v1.0.1
+        with:
+          search-dir: "."
+          destination: "pool"
+          pool-id: ${{ secrets.KUDOS_POOL_ID }}
+          setler-keys: ${{ secrets.SETLER_KEYS_0 }}
+          pool-storage-token: ${{ secrets.KUDOS_STORAGE_TOKEN }}
+          pool-endpoint: "https://api.semicolons.com"
+          generate-nomerges: true
+          generate-validemails: true
+          generate-limitdepth: 2
+          ink-chunkSize: 3000
